@@ -1,9 +1,11 @@
-## Indian Premier League Salaries vs WPA
+## Indian Premier League Salaries vs WPA and XRA
 library(tidyverse)
 library(fuzzyjoin)
 library(ggimage)
 library(nflverse)
 library(ggbeeswarm)
+library(gtable)
+library(gtExtras)
 
 
 # No longer needed --------------------------------------------------------
@@ -147,9 +149,9 @@ wpa_ipl_2023 <- readRDS("ment20/MT20_all.RDS") %>%
   slice_min(player_fuzzy.distance) %>%
   ungroup() %>%
   mutate(wpa_per_thous = total_wpa/(price_dollars_thousands),
-         wpa_per_thous = round(wpa_per_thous, digits = 4),
+         wpa_per_thous = round(wpa_per_thous, digits = 2),
          wpa_per_lakh = total_wpa/(price_lakhs),
-         wpa_per_lakh = round(wpa_per_lakh, digits = 4),
+         wpa_per_lakh = round(wpa_per_lakh, digits = 2),
          XRA_per_thous = total_XRA/(price_dollars_thousands),
          XRA_per_thous = round(XRA_per_thous, digits = 2),
          XRA_per_lakh = total_XRA/(price_lakhs),
@@ -158,6 +160,13 @@ wpa_ipl_2023 <- readRDS("ment20/MT20_all.RDS") %>%
   drop_na(player_full)
 
 
+# Google Upload -----------------------------------------------------------
+
+
+
+write.csv(wpa_ipl_2023, "wpa_ipl_2023.csv")
+drive_upload("wpa_ipl_2023.csv", name = "wpa_ipl_2023", type = "spreadsheet", overwrite = TRUE)
+1
 # Salary Plots ------------------------------------------------------------
 
 col <- as.character(wpa_ipl_2023$team_colours)
@@ -170,10 +179,24 @@ transparent <- function(img) {
 }
 
 wpa_ipl_2023 %>%
-  ggplot(aes(x = price_dollars_thousands, y = total_XRA_per_ball)) +
-  geom_point(aes(colour = position)) +
-  geom_smooth(aes(colour = position)) #+
-  #scale_colour_manual(values = col)
+  mutate(price_dollars_millions = price_dollars_thousands/1000) %>%
+  ggplot(aes(x = price_dollars_millions, y = total_wpa)) +
+  geom_point(aes(colour = position_detail)) +
+  geom_smooth(aes(colour = position_detail), se = FALSE) +
+  theme_gdocs() +
+  scale_colour_hc() +
+  labs(title = "Indian Premier League 2023 Contract amounts do not seem correlated with Win Probability Added",
+       caption = "Chart: @TAlbTree. Data: cricketdata & espncricinfo",
+       x = "USD$ Millions",
+       y = "Total Win Probability Added",
+       colour = "Position") +
+  theme(plot.title = element_text(size = 12),
+        axis.text = element_text(size = 10),
+        plot.subtitle = element_text(size = 10),
+        plot.caption = element_text(size = 10))
+
+ggsave(filename = glue("ment20/scatter_ipl_2023_wpa_vs_salary.png"), bg = "#ffffff",
+       dpi = 1000, width = 10, height = 4)
 
 wpa_ipl_2023 %>%
   mutate(price_dollars_millions = price_dollars_thousands/1000) %>%
@@ -193,3 +216,163 @@ wpa_ipl_2023 %>%
         plot.caption = element_text(size = 10))
 ggsave(filename = glue("ment20/beeswarm_ipl_2023_salaries_by_position.png"), bg = "#ffffff",
        dpi = 1000, width = 10, height = 5)
+
+wpa_ipl_2023 %>%
+  group_by(team, logo, team_colours, team_colour2) %>%
+  summarise(total_wpa = sum(total_wpa),
+            total_XRa = sum(total_XRA),
+            total_salary_millions = sum(price_dollars_thousands/1000)) %>%
+  ungroup() %>%
+  ggplot(aes(x = total_salary_millions, y = total_wpa)) +
+  geom_image(aes(image = logo, y = total_wpa, x = total_salary_millions), 
+             image_fun = transparent, asp = 2, size = 0.08) +
+  ylim(-600, 600)+
+  theme_gdocs() +
+  labs(title = "Gujarat Titans finished as Runners up in the 2023 Indian Premier League",
+       subtitle = "but they were the Moneyball champions in our hearts",
+       caption = "Chart: @TAlbTree. Data: cricketdata & espncricinfo",
+       x = "USD$ Millions - Total Payroll",
+       y = "Total Win Probability Added") +
+  theme(legend.position = "none",
+        plot.title = element_text(size = 12),
+        axis.text = element_text(size = 10),
+        plot.subtitle = element_text(size = 10),
+        plot.caption = element_text(size = 10))
+ggsave(filename = glue("ment20/image_ipl_2023_salaries_vs_WPA.png"), bg = "#ffffff",
+       dpi = 1000, width = 10, height = 5)
+
+wpa_ipl_2023 %>%
+  group_by(team, logo, team_colours, team_colour2) %>%
+  summarise(total_wpa = sum(total_wpa),
+            total_XRA = sum(total_XRA),
+            total_salary_millions = sum(price_dollars_thousands/1000)) %>%
+  ungroup() %>%
+  ggplot(aes(x = total_salary_millions, y = total_XRA)) +
+  geom_image(aes(image = logo, y = total_XRA, x = total_salary_millions), 
+             image_fun = transparent, asp = 2, size = 0.08) +
+  ylim(-600, 600)+
+  theme_gdocs() +
+  labs(title = "Gujarat Titans finished as Runners up in the 2023 Indian Premier League",
+       subtitle = "but they were the Moneyball champions in our hearts",
+       caption = "Chart: @TAlbTree. Data: cricketdata & espncricinfo",
+       x = "USD$ Millions - Total Payroll",
+       y = "Total Win Probability Added") +
+  theme(legend.position = "none",
+        plot.title = element_text(size = 12),
+        axis.text = element_text(size = 10),
+        plot.subtitle = element_text(size = 10),
+        plot.caption = element_text(size = 10))
+ggsave(filename = glue("ment20/image_ipl_2023_salaries_vs_WPA.png"), bg = "#ffffff",
+       dpi = 1000, width = 10, height = 5)
+
+wpa_ipl_2023 %>%
+  mutate(price_dollars = price_dollars_thousands*1000) %>%
+  filter(balls_total >= 100) %>%
+  dplyr::select(player_full, logo, position, price_dollars, wpa_per_thous, total_wpa, balls_total) %>%
+  arrange(desc(wpa_per_thous)) %>%
+  slice_max(wpa_per_thous, n = 10) %>%
+  gt() %>%
+  tab_header(
+    title = "The Top 10 Most Overperforming Contracts in the 2023 Men's Indian Premier League"
+  ) %>%
+  cols_align(
+    "center",
+    columns = c(player_full, logo, position, price_dollars, wpa_per_thous, total_wpa, balls_total)) %>% 
+  cols_label(
+    player_full = "Player",
+    logo = "Team",
+    position = "Position",
+    price_dollars = "Contract ($USD)",
+    wpa_per_thous = "WPA/$1000",
+    total_wpa = "Total WPA",
+    balls_total = "Balls") %>%
+  tab_source_note(
+    source_note = "Minimum combined balls bowled or faced >= 100"
+  ) %>%
+  tab_source_note(
+    source_note = "WPA = Win Probability Added"
+  ) %>%
+  tab_source_note(
+    source_note = "Table: @TAlbTree"
+  ) %>%
+  tab_source_note(
+    source_note = "Data: cricketdata & espncricinfo"
+  ) %>%
+  gt_img_rows(columns = logo, height = 50) %>%
+  gt_hulk_col_numeric(price_dollars:total_wpa) %>%
+  tab_options(footnotes.font.size = 12)%>%
+gtsave("ment20/IPL_Top10valuedcontracts.png")
+
+wpa_ipl_2023 %>%
+  mutate(price_dollars = price_dollars_thousands*1000) %>%
+  filter(balls_total >= 100) %>%
+  dplyr::select(player_full, logo, position, price_dollars, wpa_per_thous, total_wpa, balls_total) %>%
+  arrange(desc(wpa_per_thous)) %>%
+  slice_min(wpa_per_thous, n = 10) %>%
+  gt() %>%
+  tab_header(
+    title = "The Top 10 Most Underperforming Contracts in the 2023 Men's Indian Premier League"
+  ) %>%
+  cols_align(
+    "center",
+    columns = c(player_full, logo, position, price_dollars, wpa_per_thous, total_wpa, balls_total)) %>% 
+  cols_label(
+    player_full = "Player",
+    logo = "Team",
+    position = "Position",
+    price_dollars = "Contract ($USD)",
+    wpa_per_thous = "WPA/$1000",
+    total_wpa = "Total WPA",
+    balls_total = "Balls") %>%
+  tab_source_note(
+    source_note = "Minimum combined balls bowled or faced >= 100"
+  ) %>%
+  tab_source_note(
+    source_note = "WPA = Win Probability Added"
+  ) %>%
+  tab_source_note(
+    source_note = "Table: @TAlbTree"
+  ) %>%
+  tab_source_note(
+    source_note = "Data: cricketdata & espncricinfo"
+  ) %>%
+  gt_img_rows(columns = logo, height = 50) %>%
+  gt_hulk_col_numeric(price_dollars:total_wpa) %>%
+  tab_options(footnotes.font.size = 12)%>%
+  gtsave("ment20/IPL_Top10overvaluedcontracts.png")
+
+
+wpa_ipl_2023 %>%
+  mutate(price_dollars = price_dollars_thousands*1000) %>%
+  dplyr::select(player_full, logo, position, price_dollars, wpa_per_thous, total_wpa, balls_total) %>%
+  arrange(desc(price_dollars)) %>%
+  slice_max(price_dollars, n = 10) %>%
+  gt() %>%
+  tab_header(
+    title = "The Top 10 Most Expensive Contracts in the 2023 Men's Indian Premier League",
+    subtitle = "They all did pretty poorly for their contracts..."
+  ) %>%
+  cols_align(
+    "center",
+    columns = c(player_full, logo, position, price_dollars, wpa_per_thous, total_wpa, balls_total)) %>% 
+  cols_label(
+    player_full = "Player",
+    logo = "Team",
+    position = "Position",
+    price_dollars = "Contract ($USD)",
+    wpa_per_thous = "WPA/$1000",
+    total_wpa = "Total WPA",
+    balls_total = "Balls") %>%
+  tab_source_note(
+    source_note = "WPA = Win Probability Added"
+  ) %>%
+  tab_source_note(
+    source_note = "Table: @TAlbTree"
+  ) %>%
+  tab_source_note(
+    source_note = "Data: cricketdata & espncricinfo"
+  ) %>%
+  gt_img_rows(columns = logo, height = 50) %>%
+  gt_hulk_col_numeric(price_dollars:total_wpa) %>%
+  tab_options(footnotes.font.size = 12)%>%
+  gtsave("ment20/IPL_Top10highestcontracts.png")
