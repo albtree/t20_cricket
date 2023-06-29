@@ -35,7 +35,8 @@ df_lagged_total_per %>%
        y = "WPA/Ball in Year N+1",
        caption = "data: cricketdata   chart: @TAlbTree")+
   scale_color_hc() +
-  theme_pander()
+  theme_pander()+
+  theme(legend.position = "") 
 ggsave(filename = glue("ment20/year_n_1/WPA_per_ball_year_n_1.png"), bg = "#ffffff",
        dpi = 1000, width = 10, height = 8)
 
@@ -53,7 +54,8 @@ df_lagged_total_per %>%
        y = "Total XRA in Year N+1",
        caption = "data: cricketdata   chart: @TAlbTree")+
   scale_color_hc() +
-  theme_pander()
+  theme_pander()+
+  theme(legend.position = "") 
 ggsave(filename = glue("ment20/year_n_1/XRA_per_ball_year_n_1.png"), bg = "#ffffff",
        dpi = 1000, width = 10, height = 8)
 
@@ -83,7 +85,8 @@ df_lagged_total %>%
        y = "Total WPA in Year N+1",
        caption = "data: cricketdata   chart: @TAlbTree")+
   scale_color_hc() +
-  theme_pander()
+  theme_pander()+
+  theme(legend.position = "") 
 ggsave(filename = glue("ment20/year_n_1/total_WPA_year_n_1.png"), bg = "#ffffff",
        dpi = 1000, width = 10, height = 8)
 
@@ -100,7 +103,8 @@ df_lagged_total %>%
        y = "Total XRA in Year N+1",
        caption = "data: cricketdata   chart: @TAlbTree")+
   scale_color_hc() +
-  theme_pander()
+  theme_pander()+
+  theme(legend.position = "") 
 
 ggsave(filename = glue("ment20/year_n_1/total_XRA_year_n_1.png"), bg = "#ffffff",
        dpi = 1000, width = 10, height = 8)
@@ -133,7 +137,8 @@ df_lagged_bat %>%
        y = "Batting XRA/Ball in Year N+1",
        caption = "data: cricketdata   chart: @TAlbTree")+
   scale_color_hc() +
-  theme_pander()
+  theme_pander()+
+  theme(legend.position = "") 
 ggsave(filename = glue("ment20/year_n_1/bat_XRA_year_n_1.png"), bg = "#ffffff",
        dpi = 1000, width = 10, height = 8)
 
@@ -150,7 +155,8 @@ df_lagged_bat %>%
        y = "Batting WPA/Ball in Year N+1",
        caption = "data: cricketdata   chart: @TAlbTree") +
   scale_color_hc()+
-  theme_pander()
+  theme_pander()+
+  theme(legend.position = "") 
 ggsave(filename = glue("ment20/year_n_1/bat_WPA_year_n_1.png"), bg = "#ffffff",
        dpi = 1000, width = 10, height = 8)
 
@@ -182,7 +188,8 @@ df_lagged_bowl %>%
        y = "Bowling XRA/Ball in Year N+1",
        caption = "data: cricketdata   chart: @TAlbTree")+
   scale_color_hc()+
-  theme_pander()
+  theme_pander()+
+  theme(legend.position = "") 
 ggsave(filename = glue("ment20/year_n_1/bowl_XRA_year_n_1.png"), bg = "#ffffff",
        dpi = 1000, width = 10, height = 8)
 
@@ -199,6 +206,7 @@ df_lagged_bowl %>%
        y = "Bowling WPA/Ball in Year N+1",
        caption = "data: cricketdata   chart: @TAlbTree") +
   scale_color_hc()+
-  theme_pander()
+  theme_pander()+
+  theme(legend.position = "") 
 ggsave(filename = glue("ment20/year_n_1/bowl_WPA_year_n_1.png"), bg = "#ffffff",
        dpi = 1000, width = 10, height = 8)
