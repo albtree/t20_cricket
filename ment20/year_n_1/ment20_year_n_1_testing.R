@@ -1,9 +1,12 @@
+## Testing and Charting WPA and XRA stability from year to year for Twenty20 competitions
+
 library(ggpubr)
 library(tidyverse)
 library(ggthemes)
 library(glue)
 
-wpa_both <- readRDS("ment20/MT20_all.RDS")
+wpa_both <- readRDS("ment20/MT20_all.RDS") %>%
+  filter(competition != "SA20")
 
 df_lagged_total_per <- wpa_both %>%
   filter(balls_total >= 100) %>%
@@ -23,6 +26,7 @@ df_lagged_total_per %>%
   ggplot(aes(x = total_wpa_per_ball_lag, y = total_wpa_per_ball)) +
   geom_point(aes(colour = competition), alpha = 0.5) +
   geom_smooth(method = lm) +
+  facet_wrap(~competition) +
   ggpubr::stat_regline_equation(label.y.npc = "top", label.x.npc = "left",
                                 aes(label = ..rr.label..)) +
   labs(title = "Win Probability Added (WPA)/Ball in Year N vs Year N+1",
@@ -33,13 +37,14 @@ df_lagged_total_per %>%
   scale_color_hc() +
   theme_pander()
 ggsave(filename = glue("ment20/year_n_1/WPA_per_ball_year_n_1.png"), bg = "#ffffff",
-       dpi = 1000, width = 10, height = 4)
+       dpi = 1000, width = 10, height = 8)
 
 
 df_lagged_total_per %>%
   ggplot(aes(x = total_xra_per_ball_lag, y = total_XRA_per_ball)) +
   geom_point(aes(colour = competition), alpha = 0.5) +
   geom_smooth(method = lm) +
+  facet_wrap(~competition) +
   ggpubr::stat_regline_equation(label.y.npc = "top", label.x.npc = "left",
                                 aes(label = ..rr.label..)) +
   labs(title = "Total Expected Runs Added (XRA)/Ball in Year N vs Year N+1",
@@ -50,7 +55,7 @@ df_lagged_total_per %>%
   scale_color_hc() +
   theme_pander()
 ggsave(filename = glue("ment20/year_n_1/XRA_per_ball_year_n_1.png"), bg = "#ffffff",
-       dpi = 1000, width = 10, height = 4)
+       dpi = 1000, width = 10, height = 8)
 
 
 df_lagged_total <- wpa_both %>%
@@ -70,6 +75,7 @@ df_lagged_total %>%
   ggplot(aes(x = total_wpa_lag, y = total_wpa)) +
   geom_point(aes(colour = competition), alpha = 0.5) +
   geom_smooth(method = lm) +
+  facet_wrap(~competition) +
   ggpubr::stat_regline_equation(label.y.npc = "top", label.x.npc = "left",
                                 aes(label = ..rr.label..)) +
   labs(title = "Total Win Probability Added (WPA) in Year N vs Year N+1",
@@ -79,13 +85,14 @@ df_lagged_total %>%
   scale_color_hc() +
   theme_pander()
 ggsave(filename = glue("ment20/year_n_1/total_WPA_year_n_1.png"), bg = "#ffffff",
-       dpi = 1000, width = 10, height = 4)
+       dpi = 1000, width = 10, height = 8)
 
 
 df_lagged_total %>%
   ggplot(aes(x = total_xra_lag, y = total_XRA)) +
   geom_point(aes(colour = competition), alpha = 0.5) +
   geom_smooth(method = lm) +
+  facet_wrap(~competition) +
   ggpubr::stat_regline_equation(label.y.npc = "top", label.x.npc = "left",
                                 aes(label = ..rr.label..)) +
   labs(title = "Total Expected Runs Added (XRA) in Year N vs Year N+1",
@@ -96,7 +103,7 @@ df_lagged_total %>%
   theme_pander()
 
 ggsave(filename = glue("ment20/year_n_1/total_XRA_year_n_1.png"), bg = "#ffffff",
-       dpi = 1000, width = 10, height = 4)
+       dpi = 1000, width = 10, height = 8)
 
 
 df_lagged_bat <- wpa_both %>%
@@ -117,6 +124,7 @@ df_lagged_bat %>%
   ggplot(aes(x = xra_bat_lag, y = bat_XRA_per_ball)) +
   geom_point(aes(colour = competition), alpha = 0.5) +
   geom_smooth(method = lm) +
+  facet_wrap(~competition) +
   ggpubr::stat_regline_equation(label.y.npc = "top", label.x.npc = "left",
                                 aes(label = ..rr.label..)) +
   labs(title = "Batting Expected Runs Added (XRA)/Ball in Year N vs Year N+1",
@@ -127,12 +135,13 @@ df_lagged_bat %>%
   scale_color_hc() +
   theme_pander()
 ggsave(filename = glue("ment20/year_n_1/bat_XRA_year_n_1.png"), bg = "#ffffff",
-       dpi = 1000, width = 10, height = 4)
+       dpi = 1000, width = 10, height = 8)
 
 df_lagged_bat %>%
   ggplot(aes(x = wpa_bat_lag, y = bat_wpa_per_ball)) +
   geom_point(aes(colour = competition), alpha = 0.5) +
   geom_smooth(method = lm)+
+  facet_wrap(~competition) +
   ggpubr::stat_regline_equation(label.y.npc = "top", label.x.npc = "left",
                                 aes(label = ..rr.label..)) +
   labs(title = "Batting Win Probability Added (WPA)/Ball in Year N vs Year N+1",
@@ -143,7 +152,7 @@ df_lagged_bat %>%
   scale_color_hc()+
   theme_pander()
 ggsave(filename = glue("ment20/year_n_1/bat_WPA_year_n_1.png"), bg = "#ffffff",
-       dpi = 1000, width = 10, height = 4)
+       dpi = 1000, width = 10, height = 8)
 
 df_lagged_bowl <- wpa_both %>%
   filter(balls_bowled >= 25) %>%
@@ -164,6 +173,7 @@ df_lagged_bowl %>%
   ggplot(aes(x = xra_bowl_lag, y = bowl_XRA_per_ball)) +
   geom_point(aes(colour = competition), alpha = 0.5) +
   geom_smooth(method = lm) +
+  facet_wrap(~competition) +
   ggpubr::stat_regline_equation(label.y.npc = "top", label.x.npc = "left",
                                 aes(label = ..rr.label..)) +
   labs(title = "Bowling Expected Runs Added (XRA)/Ball in Year N vs Year N+1",
@@ -174,12 +184,13 @@ df_lagged_bowl %>%
   scale_color_hc()+
   theme_pander()
 ggsave(filename = glue("ment20/year_n_1/bowl_XRA_year_n_1.png"), bg = "#ffffff",
-       dpi = 1000, width = 10, height = 4)
+       dpi = 1000, width = 10, height = 8)
 
 df_lagged_bowl %>%
   ggplot(aes(x = wpa_bowl_lag, y = bowl_wpa_per_ball)) +
   geom_point(aes(colour = competition), alpha = 0.5) +
   geom_smooth(method = lm)+
+  facet_wrap(~competition) +
   ggpubr::stat_regline_equation(label.y.npc = "top", label.x.npc = "left",
                                 aes(label = ..rr.label..)) +
   labs(title = "Bowling Win Probability Added (WPA)/Ball in Year N vs Year N+1",
@@ -190,4 +201,4 @@ df_lagged_bowl %>%
   scale_color_hc()+
   theme_pander()
 ggsave(filename = glue("ment20/year_n_1/bowl_WPA_year_n_1.png"), bg = "#ffffff",
-       dpi = 1000, width = 10, height = 4)
+       dpi = 1000, width = 10, height = 8)
