@@ -121,7 +121,7 @@ df_lagged_bat <- wpa_both %>%
 xra_bat_fit <- lm(bat_XRA_per_ball ~ xra_bat_lag, data = df_lagged_bat)
 summary(xra_bat_fit)   
 
-wpa_bat_fit <- lm(bat_wpa_per_ball ~ wpa_bat_lag, data = df_lagged)
+wpa_bat_fit <- lm(bat_wpa_per_ball ~ wpa_bat_lag, data = df_lagged_bat)
 summary(wpa_bat_fit)  
 
 df_lagged_bat %>%
