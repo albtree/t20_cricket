@@ -60,7 +60,9 @@ wpa_xra_records <- wpa_both %>%
   ungroup() %>%
   left_join(MT20_records, by = c('competition' = 'competition',
                                    'season' = 'season', 
-                                   'team' = 'team'), na_matches = "never")
+                                   'team' = 'team'), na_matches = "never") %>%
+  mutate(bat_wpa_title = "Batting WPA",
+         bowl_wpa_title = "Bowling WPA")
 
 fit <- lm(win_percentage ~ total_bat_wpa, data = wpa_xra_records)
 summary(fit)
@@ -68,19 +70,25 @@ summary(fit)
 fit <- lm(win_percentage ~ total_bowl_wpa, data = wpa_xra_records)
 summary(fit)
 
+fit <- lm(win_percentage ~ total_bowl_wpa + total_bat_wpa, data = wpa_xra_records)
+summary(fit)
+
 wpa_xra_records %>%
   ggplot(aes()) +
-  geom_point(aes(x = total_bat_wpa, y = win_percentage), colour = "orange", alpha = 0.5) +
-  geom_smooth(aes(x = total_bat_wpa, y = win_percentage), colour = "orange", alpha = 0.6, method = lm) +
-  geom_point(aes(x = total_bowl_wpa, y = win_percentage), colour = "darkgreen", alpha = 0.5) +
-  geom_smooth(aes(x = total_bowl_wpa, y = win_percentage), colour = "darkgreen", alpha = 0.6, method = lm) +
-  labs(title = "Batting and Bowling Win Probability Added (WPA) are equally important\nin Twenty20 cricket",
-       subtitle = "Orange = Batting        Green = Bowling",
-       x = "WPA",
+  geom_point(aes(x = total_bat_wpa, y = win_percentage, colour = bat_wpa_title), alpha = 0.5) +
+  geom_smooth(aes(x = total_bat_wpa, y = win_percentage, colour = bat_wpa_title),alpha = 0.6, method = lm) +
+  geom_point(aes(x = total_bowl_wpa, y = win_percentage, colour  = bowl_wpa_title), alpha = 0.5) +
+  geom_smooth(aes(x = total_bowl_wpa, y = win_percentage, colour  = bowl_wpa_title),alpha = 0.6, method = lm) +
+  labs(title = "Bowling WPA appears to be very slightly more important than Batting WPA in Twenty20 cricket",
+       subtitle = "T20 Competitions: IPL, Big Bash, Vitality Blast, SA20, Super Smash League,",
+       x = "Win Probability Added (WPA)",
        y = "Team Win Percentage",
-       caption = "data: cricketdata   chart: @TAlbTree")+
-  scale_color_hc() +
-  theme_pander()
+       caption = "data: cricketdata   chart: @TAlbTree",
+       colour = "WPA Type")+
+  theme_pander() +
+  scale_color_solarized() +
+  theme(plot.title = element_text(size = 12))
+
 ggsave(filename = glue("ment20/bat_vs_bowl_testing/WPA_bat_bowl_record.png"), bg = "#ffffff",
        dpi = 1000, width = 10, height = 5)
                
