@@ -1,0 +1,244 @@
+player,position,price_lakhs,price_dollars_thousands,team
+Virat Kohli,BAT,1500,1829,royal challengers bangalore
+Glenn Maxwell,AR,1100,1341,royal challengers bangalore
+Harshal Patel,AR,1075,1310,royal challengers bangalore
+Wanindu Hasaranga,AR,1075,1310,royal challengers bangalore
+Josh Hazlewood,BOW,775,945,royal challengers bangalore
+Faf du,BAT,700,853,royal challengers bangalore
+Mohammed Siraj,BOW,700,853,royal challengers bangalore
+Dinesh Karthik,BAT/WK,550,670,royal challengers bangalore
+Anuj Rawat,BAT/WK,340,414,royal challengers bangalore
+Will Jacks,BAT,320,390,royal challengers bangalore
+Shahbaz Ahmed,AR,240,292,royal challengers bangalore
+David Willey,AR,200,243,royal challengers bangalore
+Reece Topley,BOW,190,231,royal challengers bangalore
+Mahipal Lomror,AR,95,115,royal challengers bangalore
+Finn Allen,BAT,80,97,royal challengers bangalore
+Siddarth Kaul,BOW,75,91,royal challengers bangalore
+Rajan Kumar,BOW,70,85,royal challengers bangalore
+Avinash Singh,BOW,60,73,royal challengers bangalore
+Karn Sharma,BOW,50,60,royal challengers bangalore
+Suyash Prabhudessai,AR,30,36,royal challengers bangalore
+Sonu Yadav,AR,20,24,royal challengers bangalore
+Manoj Bhandage,AR,20,24,royal challengers bangalore
+Akash Deep,BOW,20,24,royal challengers bangalore
+Himanshu Sharma,BOW,20,24,royal challengers bangalore
+Rajat Patidar,BAT,20,24,royal challengers bangalore
+Andre Russell,AR,1600,1951,kolkata knight riders
+Shreyas Iyer,BAT,1225,1493,kolkata knight riders
+CV Varun,AR,1200,1463,kolkata knight riders
+Shardul Thakur,BOW,1075,1310,kolkata knight riders
+Lockie Ferguson,BOW,1000,1219,kolkata knight riders
+Nitish Rana,AR,800,975,kolkata knight riders
+Venkatesh Iyer,AR,800,975,kolkata knight riders
+Sunil Narine,BOW,600,731,kolkata knight riders
+Umesh Yadav,BOW,200,243,kolkata knight riders
+Tim Southee,BOW,150,182,kolkata knight riders
+Shakib Al,AR,150,182,kolkata knight riders
+David Wiese,AR,100,121,kolkata knight riders
+Narayan Jagadeesan,BAT/WK,90,109,kolkata knight riders
+Vaibhav Arora,BOW,60,73,kolkata knight riders
+Rinku Singh,BAT,55,67,kolkata knight riders
+Mandeep Singh,BAT,50,60,kolkata knight riders
+Litton Das,BAT/WK,50,60,kolkata knight riders
+Rahmanullah Gurbaz,BAT/WK,50,60,kolkata knight riders
+Anukul Roy,AR,20,24,kolkata knight riders
+Kulwant Khejroliya,BOW,20,24,kolkata knight riders
+Harshit Rana,BOW,20,24,kolkata knight riders
+Suyash Sharma,BOW,20,24,kolkata knight riders
+Sam Curran,AR,1850,2256,punjab kings
+Liam Livingstone,AR,1150,1402,punjab kings
+Kagiso Rabada,BOW,925,1128,punjab kings
+Shahrukh Khan,AR,900,1097,punjab kings
+Shikhar Dhawan,BAT,825,1006,punjab kings
+Jonny Bairstow,BAT/WK,675,823,punjab kings
+Rahul Chahar,BOW,525,640,punjab kings
+Arshdeep Singh,BOW,400,487,punjab kings
+Harpreet Brar,AR,380,463,punjab kings
+Raj Angad,AR,200,243,punjab kings
+Nathan Ellis,BOW,75,91,punjab kings
+Prabhsimran Singh,BAT/WK,60,73,punjab kings
+Rishi Dhawan,AR,55,67,punjab kings
+Sikandar Raza,AR,50,60,punjab kings
+Bhanuka Rajapaksa,BAT,50,60,punjab kings
+Harpreet Bhatia,BAT,40,48,punjab kings
+Atharva Taide,AR,20,24,punjab kings
+Vidwath Kaverappa,BOW,20,24,punjab kings
+Shivam Singh,AR,20,24,punjab kings
+Mohit Rathee,AR,20,24,punjab kings
+Baltej Singh,BOW,20,24,punjab kings
+Jitesh Sharma,BAT/WK,20,24,punjab kings
+Ben Stokes,AR,1625,1981,chennai super kings
+Ravindra Jadeja,AR,1600,1951,chennai super kings
+Deepak Chahar,BOW,1400,1707,chennai super kings
+MS Dhoni,BAT/WK,1200,1463,chennai super kings
+Moeen Ali,AR,800,975,chennai super kings
+Ambati Rayudu,BAT/WK,675,823,chennai super kings
+Ruturaj Gaikwad,BAT,600,731,chennai super kings
+Shivam Dube,AR,400,487,chennai super kings
+Mitchell Santner,AR,190,231,chennai super kings
+Rajvardhan Hangargekar,AR,150,182,chennai super kings
+Prashant Solanki,BOW,120,146,chennai super kings
+Devon Conway,BAT,100,121,chennai super kings
+Kyle Jamieson,BOW,100,121,chennai super kings
+Maheesh Theekshana,BOW,70,85,chennai super kings
+Nishant Sindhu,AR,60,73,chennai super kings
+Ajinkya Rahane,BAT,50,60,chennai super kings
+Dwaine Pretorius,AR,50,60,chennai super kings
+Ajay Mandal,AR,20,24,chennai super kings
+Subhranshu Senapati,BAT,20,24,chennai super kings
+Mukesh Choudhary,BOW,20,24,chennai super kings
+Simarjeet Singh,BOW,20,24,chennai super kings
+Matheesha Pathirana,BOW,20,24,chennai super kings
+Bhagath Varma,AR,20,24,chennai super kings
+Shaik Rasheed,BAT,20,24,chennai super kings
+Tushar Deshpande,BOW,20,24,chennai super kings
+Rishabh Pant,BAT/WK,1600,1951,delhi capitals
+Axar Patel,AR,1200,1463,delhi capitals
+Prithvi Shaw,BAT,800,975,delhi capitals
+Mitchell Marsh,AR,650,792,delhi capitals
+Anrich Nortje,BOW,650,792,delhi capitals
+David Warner,BAT,625,762,delhi capitals
+Mukesh Kumar,BOW,550,670,delhi capitals
+Khaleel Ahmed,BOW,525,640,delhi capitals
+Rilee Rossouw,BAT,460,560,delhi capitals
+Chetan Sakariya,BOW,420,512,delhi capitals
+Rovman Powell,BAT,280,341,delhi capitals
+Manish Pandey,BAT,240,292,delhi capitals
+Mustafizur Rahman,BOW,200,243,delhi capitals
+Kuldeep Yadav,BOW,200,243,delhi capitals
+Phil Salt,BAT/WK,200,243,delhi capitals
+Kamlesh Nagarkoti,AR,110,134,delhi capitals
+Lalit Yadav,AR,65,79,delhi capitals
+Yash Dhull,AR,50,60,delhi capitals
+Ishant Sharma,BOW,50,60,delhi capitals
+Lungi Ngidi,BOW,50,60,delhi capitals
+Praveen Dubey,AR,50,60,delhi capitals
+Ripal Patel,AR,20,24,delhi capitals
+Aman Khan,AR,20,24,delhi capitals
+Vicky Ostwal,AR,20,24,delhi capitals
+Sarfaraz Khan,AR,20,24,delhi capitals
+Sanju Samson,BAT/WK,1400,1707,rajasthan royals
+Jos Buttler,BAT/WK,1000,1219,rajasthan royals
+Prasidh Krishna,BOW,1000,1219,rajasthan royals
+Shimron Hetmyer,BAT,850,1036,rajasthan royals
+Trent Boult,BOW,800,975,rajasthan royals
+Devdutt Padikkal,BAT,775,945,rajasthan royals
+Yuzvendra Chahal,BOW,650,792,rajasthan royals
+Jason Holder,AR,575,701,rajasthan royals
+R Ashwin,AR,500,609,rajasthan royals
+Yashasvi Jaiswal,AR,400,487,rajasthan royals
+Riyan Parag,AR,380,463,rajasthan royals
+Navdeep Saini,BOW,260,317,rajasthan royals
+Adam Zampa,BOW,150,182,rajasthan royals
+Joe Root,BAT,100,121,rajasthan royals
+Obed McCoy,BOW,75,91,rajasthan royals
+Donovan Ferreira,BAT/WK,50,60,rajasthan royals
+KM Asif,BOW,30,36,rajasthan royals
+KC Cariappa,BOW,30,36,rajasthan royals
+Kuldeep Sen,BOW,20,24,rajasthan royals
+Dhruv Jurel,BAT/WK,20,24,rajasthan royals
+Kuldip Yadav,BOW,20,24,rajasthan royals
+Abdul Basith,AR,20,24,rajasthan royals
+Kunal Singh,BAT/WK,20,24,rajasthan royals
+Murugan Ashwin,BOW,20,24,rajasthan royals
+Akash Vashisht,AR,20,24,rajasthan royals
+Cameron Green,AR,1750,2134,mumbai indians
+Rohit Sharma,BAT,1600,1951,mumbai indians
+Ishan Kishan,BAT/WK,1525,1859,mumbai indians
+Jasprit Bumrah,BOW,1200,1463,mumbai indians
+Tim David,AR,825,1006,mumbai indians
+Suryakumar Yadav,BAT,800,975,mumbai indians
+Jofra Archer,AR,800,975,mumbai indians
+Dewald Brevis,BAT,300,365,mumbai indians
+Tilak Varma,AR,170,207,mumbai indians
+Jhye Richardson,BOW,150,182,mumbai indians
+Jason Behrendorff,BOW,75,91,mumbai indians
+Piyush Chawla,BOW,50,60,mumbai indians
+Arjun Tendulkar,AR,30,36,mumbai indians
+Ramandeep Singh,AR,20,24,mumbai indians
+Shams Mulani,AR,20,24,mumbai indians
+Nehal Wadhera,AR,20,24,mumbai indians
+Kumar Kartikeya,BOW,20,24,mumbai indians
+Hrithik Shokeen,AR,20,24,mumbai indians
+Akash Madhwal,BOW,20,24,mumbai indians
+Arshad Khan,AR,20,24,mumbai indians
+Raghav Goyal,BOW,20,24,mumbai indians
+Duan Jansen,AR,20,24,mumbai indians
+Tristan Stubbs,BAT/WK,20,24,mumbai indians
+Vishnu Vinod,BAT/WK,20,24,mumbai indians
+Harry Brook,BAT,1325,1615,sunrisers hyderabad
+Washington Sundar,AR,875,1067,sunrisers hyderabad
+Rahul Tripathi,BAT,850,1036,sunrisers hyderabad
+Mayank Agarwal,BAT,825,1006,sunrisers hyderabad
+Abhishek Sharma,AR,650,792,sunrisers hyderabad
+Heinrich Klaasen,BAT/WK,525,640,sunrisers hyderabad
+Bhuvneshwar Kumar,BOW,420,512,sunrisers hyderabad
+Marco Jansen,AR,420,512,sunrisers hyderabad
+Kartik Tyagi,BOW,400,487,sunrisers hyderabad
+Abdul Samad,AR,400,487,sunrisers hyderabad
+Umran Malik,BOW,400,487,sunrisers hyderabad
+T Natarajan,BOW,400,487,sunrisers hyderabad
+Vivrant Sharma,AR,260,317,sunrisers hyderabad
+Aiden Markram,BAT,260,317,sunrisers hyderabad
+Adil Rashid,BOW,200,243,sunrisers hyderabad
+Mayank Dagar,AR,180,219,sunrisers hyderabad
+Glenn Phillips,BAT/WK,150,182,sunrisers hyderabad
+Akeal Hosein,BOW,100,121,sunrisers hyderabad
+Mayank Markande,BOW,50,60,sunrisers hyderabad
+Fazalhaq Farooqi,BOW,50,60,sunrisers hyderabad
+Upendra Yadav,BAT/WK,25,30,sunrisers hyderabad
+Sanvir Singh,AR,20,24,sunrisers hyderabad
+Nitish Kumar,BAT/WK,20,24,sunrisers hyderabad
+Anmolpreet Singh,BAT,20,24,sunrisers hyderabad
+Samarth Vyas,AR,20,24,sunrisers hyderabad
+KL Rahul,BAT/WK,1700,2073,lucknow super giants
+Nicholas Pooran,BAT/WK,1600,1951,lucknow super giants
+Marcus Stoinis,AR,1000,1219,lucknow super giants
+Avesh Khan,BOW,1000,1219,lucknow super giants
+Krunal Pandya,AR,825,1006,lucknow super giants
+Mark Wood,BOW,750,914,lucknow super giants
+Quinton de,BAT/WK,675,823,lucknow super giants
+Deepak Hooda,AR,575,701,lucknow super giants
+Ravi Bishnoi,BOW,400,487,lucknow super giants
+Krishnappa Gowtham,AR,90,109,lucknow super giants
+Daniel Sams,AR,75,91,lucknow super giants
+Amit Mishra,BOW,50,60,lucknow super giants
+Kyle Mayers,AR,50,60,lucknow super giants
+Jaydev Unadkat,BOW,50,60,lucknow super giants
+Romario Shepherd,AR,50,60,lucknow super giants
+Naveen ul,BOW,50,60,lucknow super giants
+Yash Thakur,BOW,45,54,lucknow super giants
+Mohsin Khan,BOW,20,24,lucknow super giants
+Ayush Badoni,AR,20,24,lucknow super giants
+Yudhvir Charak,AR,20,24,lucknow super giants
+Karan Sharma,AR,20,24,lucknow super giants
+Mayank Yadav,BOW,20,24,lucknow super giants
+Swapnil Singh,AR,20,24,lucknow super giants
+Manan Vohra,BAT,20,24,lucknow super giants
+Prerak Mankad,AR,20,24,lucknow super giants
+Hardik Pandya,AR,1500,1829,gujarat titans
+Rashid Khan,BOW,1500,1829,gujarat titans
+Rahul Tewatia,AR,900,1097,gujarat titans
+Shubman Gill,BAT,800,975,gujarat titans
+Mohammed Shami,BOW,625,762,gujarat titans
+Shivam Mavi,BOW,600,731,gujarat titans
+Joshua Little,BOW,440,536,gujarat titans
+Yash Dayal,BOW,320,390,gujarat titans
+R Sai,BOW,300,365,gujarat titans
+David Miller,BAT,300,365,gujarat titans
+Abhinav Manohar,BAT,260,317,gujarat titans
+Matthew Wade,BAT/WK,240,292,gujarat titans
+Alzarri Joseph,BOW,240,292,gujarat titans
+Kane Williamson,BAT,200,243,gujarat titans
+Wriddhiman Saha,BAT/WK,190,231,gujarat titans
+Jayant Yadav,AR,170,207,gujarat titans
+Vijay Shankar,AR,140,170,gujarat titans
+Srikar Bharat,BAT/WK,120,146,gujarat titans
+Mohit Sharma,BOW,50,60,gujarat titans
+Odean Smith,AR,50,60,gujarat titans
+Noor Ahmad,BOW,30,36,gujarat titans
+Darshan Nalkande,AR,20,24,gujarat titans
+Urvil Patel,BAT/WK,20,24,gujarat titans
+Sai Sudharsan,AR,20,24,gujarat titans
+Pradeep Sangwan,AR,20,24,gujarat titans
